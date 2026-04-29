@@ -18,12 +18,14 @@ public class Ejercicio1 {
             System.out.println("3. Mostrar todos los prestamos activos ( (inicio -> fin)");
             System.out.println("4. Mostrar todos los prestamos activos ( (fin -> inicio)");
             System.out.println("5. Buscar un libro por su titulo o codigo");
-            System.out.println("6. Buscar un libro por su titulo o codigo");
             System.out.println("0. Salir");
             System.out.print("Opcion: ");
-            opcion = leerInt();
+            opcion = Integer.parseInt(entrada.nextLine());
             switch (opcion) {
-              case 1 -> {
+                case 0 -> { System.out.println("Saliendo del programa...");
+                    System.exit(0); 
+                }
+                case 1 -> {
                     try {
                    System.out.print("Codigo de libro: ");
                     String codigo = entrada.nextLine().trim().replace(",", ".");
@@ -45,33 +47,44 @@ public class Ejercicio1 {
                         System.out.println("Error intente de nuevo agregar un libro");
                   }  break; }
               case 2 -> {
-                     System.out.println("Ingrese codigo del prestamos cancelar (Codigo Libro): ");
+                    try {
+                   System.out.println("Ingrese codigo del prestamos cancelar (Codigo Libro): ");
                      String codigo = entrada.nextLine();
                      
                       if (gestor.cancelarPrestamo(codigo)) {
                           System.out.println("El libro: " + codigo + ", fue cancelado \n");
                   } else {System.out.println("Error, el libro no fue cancelado");}
-                         }
+                         
+                  } catch (Exception e) {
+                  } }
               case 3 -> {
-                    System.out.println("Ingrese de que ");
+                    System.out.println("---- LISTA DE INICIO A FIN-----");
+                     if (!gestor.listarDeInicioFin().equalsIgnoreCase("")){
+                            gestor.listarDeFinInicio();
+                            }
+                            else   {System.out.println("No hay Libros agregados");}        
               }
-               /*
-                case 2: historial.retroceder(); break;
-                case 3: historial.avanzar();    break;
-                case 4: historial.mostrarAdelanteAtras(); break;
-                case 5: historial.mostrarAtrasAdelante(); break;
-                case 0: System.out.println("Saliendo..."); break;
-                default: System.out.println("Opcion invalida.");*/
-            }
-        } while (opcion != 0);
-        entrada.close();
-    }
- 
-    static int leerInt() {
-        try { 
-            return Integer.parseInt(entrada.nextLine().trim());
-        } catch (NumberFormatException e) 
-        { return -1; }
-    }
+              case 4-> {
+                     System.out.println("---- LISTA DE FIN A INICIO-----");
+                     if (!gestor.listarDeFinInicio().equalsIgnoreCase("")){
+                            gestor.listarDeFinInicio();
+                            }
+                            else   {System.out.println("No hay Libros agregados");}
+                    }
+              case 5 -> {
+                  try {
+                      System.out.println("Ingrese el codigo o titulo del libro");
+                      String aux = entrada.nextLine();
+                      if (gestor.buscarLibro(aux) != null) {
+                      NodoLibro libroBuscado = gestor.buscarLibro(aux);
+                          System.out.println(libroBuscado.getLibro().toString());
+                      } else { System.out.println("Error no se encontro el libro");}
+                  } catch (Exception e) {
+                  }
+              }
     
-}
+        }} while (opcion != 0); }}
+
+        
+        
+

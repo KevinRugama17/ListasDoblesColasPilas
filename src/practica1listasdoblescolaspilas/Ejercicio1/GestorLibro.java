@@ -76,14 +76,14 @@ public class GestorLibro {
           aux = aux.getSig();
       }
   return false;}
-  // Muestra todos los prestamos
-  public String listar(){
+  // recorre y muestra todos los prestamos de inicio a fin
+  public String listarDeInicioFin(){
       if (vacia()) {
       return "";
       }
       // Declaramos e inicializamos listado
       String listado = "";
-      // Variable para recorrer lista
+      // Variable para recorrer lista desde inicio
       NodoLibro aux = cabeza;
       // contador de libros activos
       int contador = 1;
@@ -91,6 +91,24 @@ public class GestorLibro {
       listado += contador + aux.getLibro().toString() + "\n";
       contador ++;
       aux = aux.getSig();
+      }
+  return listado;}
+  
+  // Muestra todos los prestamos de fin a inicio
+  public String listarDeFinInicio(){
+      if (vacia()) {
+      return "";
+      }
+      // Declaramos e inicializamos listado
+      String listado = "";
+      // Variable para recorrer la lista desde fin
+      NodoLibro aux = fin;
+      // contador de libros activos
+      int contador = 1;
+      while (aux != null) {          
+      listado += contador + aux.getLibro().toString() + "\n";
+      contador ++;
+      aux = aux.getAnt();
       }
   return listado;}
   
