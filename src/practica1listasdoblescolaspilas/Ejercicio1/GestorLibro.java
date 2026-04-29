@@ -35,9 +35,9 @@ public class GestorLibro {
           }
       aux = aux.getSig();
       }
-      nuevoLibro.setAnt(aux);
-      aux.setSig(nuevoLibro);
       nuevoLibro.setSig(null);
+      aux.setSig(nuevoLibro);
+      nuevoLibro.setAnt(aux);
       fin = nuevoLibro;
       
   return true;}
@@ -60,8 +60,7 @@ public class GestorLibro {
       temp = fin;
       fin = fin.getAnt();
       fin.getAnt().setSig(null);
-      
-      
+      return true;
       }
        // Declaracion e inicializacion nodo aux;
       NodoLibro aux = cabeza;

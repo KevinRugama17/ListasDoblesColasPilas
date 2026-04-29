@@ -66,7 +66,7 @@ public class Ejercicio1 {
  
     static int leerInt() {
         try { 
-            return Integer.parseInt(sc.nextLine().trim());
+            return Integer.parseInt(entrada.nextLine().trim());
         } catch (NumberFormatException e) 
         { return -1; }
     }
