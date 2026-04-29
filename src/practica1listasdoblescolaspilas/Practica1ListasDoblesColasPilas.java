@@ -2,9 +2,10 @@ package practica1listasdoblescolaspilas;
 
 import java.util.Scanner;
 import practica1listasdoblescolaspilas.*;
+import practica1listasdoblescolaspilas.Ejercicio1.Ejercicio1;
 
 public class Practica1ListasDoblesColasPilas {
-    
+    static Ejercicio1 proceso = new Ejercicio1();
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String opcion = "";
@@ -25,7 +26,7 @@ public class Practica1ListasDoblesColasPilas {
 
             switch (opcion) {
                 case "1":
-                   // practica1listasdoblescolaspilas.Ejercicio1.Ejercicio1.ejecutar(sc);
+                  
                     break;
                 case "2":
                     practica1listasdoblescolaspilas.Ejercicio2.Ejercicio2.ejecutar(sc);

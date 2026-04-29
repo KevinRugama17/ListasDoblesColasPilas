@@ -22,10 +22,9 @@ public class GestorLibro {
       nuevoLibro.ant = null;
       nuevoLibro.sig = null;
       cabeza = nuevoLibro;
-      fin = nuevoLibro;
+      fin = cabeza;
       return true;
       }
-      
       // Declaracion e inicializacion del Nodo actual, para recorrer la lista
       NodoLibro aux = cabeza;
       // recorre la lista hasta encontrar que el siguiente nodo de la lista sea nulo

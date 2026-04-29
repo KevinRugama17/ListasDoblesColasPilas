@@ -7,9 +7,9 @@ public class Ejercicio1 {
 
     static Scanner entrada = new Scanner(System.in);
     static GestorLibro gestor = new GestorLibro();
-
-    public static void ejecutar(Scanner sc) {
-
+   
+    public static void main(String[] args) {
+        
         int opcion;
         do {
             System.out.println("\n-- Gestion de prestamos de libros --");
@@ -28,6 +28,7 @@ public class Ejercicio1 {
                     System.exit(0);
                 }
                 case 1 -> {
+                 
                     try {
                         System.out.print("Codigo de libro: ");
                         String codigo = entrada.nextLine().trim().replace(",", ".");
@@ -47,7 +48,7 @@ public class Ejercicio1 {
                         } else {
                             System.out.println("Error, libro no agregado");
                         }
-                    } catch (Exception e) {
+                    } catch (Exception e1) {
                         System.out.println("Error intente de nuevo agregar un libro");
                     }
                     break;
@@ -68,10 +69,10 @@ public class Ejercicio1 {
                 }
                 case 3 -> {
                     System.out.println("---- LISTA DE INICIO A FIN-----");
-                    if (!gestor.listarDeInicioFin().equalsIgnoreCase("")) {
-                        gestor.listarDeFinInicio();
-                    } else {
+                    if (gestor.listarDeInicioFin().equalsIgnoreCase("")) {
                         System.out.println("No hay Libros agregados");
+                    } else {
+                        gestor.listarDeInicioFin();
                     }
                 }
                 case 4 -> {
