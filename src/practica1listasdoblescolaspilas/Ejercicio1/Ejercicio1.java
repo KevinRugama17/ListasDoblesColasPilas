@@ -8,7 +8,7 @@ public class Ejercicio1 {
     static Scanner entrada = new Scanner(System.in);
     static GestorLibro gestor = new GestorLibro();
 
-    public static void main(String[] args) {
+    public static void ejecutar(Scanner sc) {
 
         int opcion;
         do {
