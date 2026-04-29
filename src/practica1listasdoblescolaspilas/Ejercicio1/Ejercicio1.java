@@ -49,9 +49,12 @@ public class Ejercicio1 {
                      String codigo = entrada.nextLine();
                      
                       if (gestor.cancelarPrestamo(codigo)) {
-                          System.out.println("El libro: " + "cancelado \n");
-                  }
+                          System.out.println("El libro: " + codigo + ", fue cancelado \n");
+                  } else {System.out.println("Error, el libro no fue cancelado");}
                          }
+              case 3 -> {
+                    System.out.println("Ingrese de que ");
+              }
                /*
                 case 2: historial.retroceder(); break;
                 case 3: historial.avanzar();    break;
