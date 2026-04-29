@@ -2,6 +2,7 @@ package practica1listasdoblescolaspilas.Ejercicio1;
 
 
 public class GestorLibro {
+       private int total;
        private NodoLibro cabeza;
        private NodoLibro fin;
        
