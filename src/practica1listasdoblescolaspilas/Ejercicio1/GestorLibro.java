@@ -20,7 +20,7 @@ public class GestorLibro {
       // en caso que la lista este vacia
       if (cabeza == null) {
       nuevoLibro.setAnt(null);
-      nuevoLibro.setSig(cabeza);
+      nuevoLibro.setSig(null);
       cabeza = nuevoLibro;
       fin = nuevoLibro;
       return true;
