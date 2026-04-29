@@ -76,7 +76,7 @@ public class ColaSoporte {
           
       }
       
-      
+     
  public void estadisticasPorCanal() {
     // 1. Inicializamos los contadores
     int telefono = 0;
@@ -88,8 +88,8 @@ public class ColaSoporte {
 
     // 3. Recorrido de la cola
     while (actual != null) {
-        // Obtenemos el canal (asumiendo que Solicitud tiene un método getCanal() o atributo canal)
-        String canal = actual.dato.canalContacto();
+        // Obtenemos el canal (usando el método getter de la clase Solicitud)
+        String canal = actual.dato.getCanalContacto();
 
         // 4. Clasificamos y contamos (usamos ignoreCase por seguridad)
         if (canal.equalsIgnoreCase("Teléfono")) {
