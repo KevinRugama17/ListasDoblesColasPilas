@@ -1,19 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package practica1listasdoblescolaspilas.Ejercicio1;
 
 import java.util.Scanner;
 
-/**
- *
- * @author kevin
- */
 public class Ejercicio1 {
 
-   static Scanner sc = new Scanner(System.in);
-   
+   static Scanner entrada = new Scanner(System.in);
+   static  GestorLibro gestor = new GestorLibro();
     public static void main(String[] args) {
         
         int opcion;
@@ -30,10 +23,36 @@ public class Ejercicio1 {
             System.out.print("Opcion: ");
             opcion = leerInt();
             switch (opcion) {
-           /*     case 1:
-                    System.out.print("Nuevo prestamo: ");
-                    historial.visitarPagina(sc.nextLine().trim());
-                    break;
+              case 1 -> {
+                    try {
+                   System.out.print("Codigo de libro: ");
+                    String codigo = entrada.nextLine().trim().replace(",", ".");
+                    System.out.println("Titulo: ");
+                    String titulo = entrada.nextLine();
+                    System.out.println("autor: ");
+                    String autor = entrada.nextLine();
+                    System.out.println("Nombre estudiante: ");
+                    String nombreEstudiante = entrada.nextLine();
+                        if (codigo.isEmpty() || titulo.isEmpty() || autor.isEmpty() || nombreEstudiante.isEmpty()) {
+                            System.out.println("Campos Incompletos, Por favor, llene todos los campos.");
+                        return;}
+                       Libro nuevoLibro = new Libro(codigo, titulo, autor, nombreEstudiante);
+                        if (gestor.insertarFinal(nuevoLibro)) {
+                            System.out.println("El libro: " + nuevoLibro.getCodigoLibro() + "agregado \n");
+                        }
+                        else { System.out.println("Error, libro no agregado");}
+                  } catch (Exception e) {
+                        System.out.println("Error intente de nuevo agregar un libro");
+                  }  break; }
+              case 2 -> {
+                     System.out.println("Ingrese codigo del prestamos cancelar (Codigo Libro): ");
+                     String codigo = entrada.nextLine();
+                     
+                      if (gestor.cancelarPrestamo(codigo)) {
+                          System.out.println("El libro: " + "cancelado \n");
+                  }
+                         }
+               /*
                 case 2: historial.retroceder(); break;
                 case 3: historial.avanzar();    break;
                 case 4: historial.mostrarAdelanteAtras(); break;
@@ -42,7 +61,7 @@ public class Ejercicio1 {
                 default: System.out.println("Opcion invalida.");*/
             }
         } while (opcion != 0);
-        sc.close();
+        entrada.close();
     }
  
     static int leerInt() {
