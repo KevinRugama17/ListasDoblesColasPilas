@@ -72,13 +72,13 @@ public class Ejercicio1 {
                     if (gestor.listarDeInicioFin().equalsIgnoreCase("")) {
                         System.out.println("No hay Libros agregados");
                     } else {
-                        gestor.listarDeInicioFin();
+                        System.out.println(gestor.listarDeInicioFin()); 
                     }
                 }
                 case 4 -> {
                     System.out.println("---- LISTA DE FIN A INICIO-----");
                     if (!gestor.listarDeFinInicio().equalsIgnoreCase("")) {
-                        gestor.listarDeFinInicio();
+                        System.out.println(gestor.listarDeFinInicio());
                     } else {
                         System.out.println("No hay Libros agregados");
                     }
