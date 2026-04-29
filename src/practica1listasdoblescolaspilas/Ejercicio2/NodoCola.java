@@ -10,4 +10,14 @@ package practica1listasdoblescolaspilas.Ejercicio2;
  */
 public class NodoCola {
     
+    Solicitud dato;
+    NodoCola siguiente;
+
+    public NodoCola(Solicitud dato, NodoCola siguiente) {
+        this.dato = dato;
+        this.siguiente = null;
+    }
+    
+    
+    
 }
