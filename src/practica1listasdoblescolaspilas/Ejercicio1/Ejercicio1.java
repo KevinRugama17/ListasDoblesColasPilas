@@ -6,9 +6,9 @@ import java.util.Scanner;
 public class Ejercicio1 {
 
     static Scanner entrada = new Scanner(System.in);
-    static GestorLibro gestor = new GestorLibro();
+    static ListaDoblementeEnlazadas gestor = new ListaDoblementeEnlazadas();
    
-    public static void main(String[] args) {
+    public static void ejecutar(Scanner entrada) {
         
         int opcion;
         do {
@@ -21,7 +21,7 @@ public class Ejercicio1 {
             System.out.println("5. Buscar un libro por su titulo o codigo");
             System.out.println("0. Salir");
             System.out.print("Opcion: ");
-            opcion = Integer.parseInt(entrada.nextLine());
+            opcion = leerInt();
             switch (opcion) {
                 case 0 -> {
                     System.out.println("Saliendo del programa...");
@@ -30,7 +30,7 @@ public class Ejercicio1 {
                 case 1 -> {
                  
                     try {
-                        System.out.print("Codigo de libro: ");
+                        System.out.println("Codigo de libro: ");
                         String codigo = entrada.nextLine().trim().replace(",", ".");
                         System.out.println("Titulo: ");
                         String titulo = entrada.nextLine();
@@ -86,10 +86,10 @@ public class Ejercicio1 {
                 case 5 -> {
                     try {
                         System.out.println("Ingrese el codigo o titulo del libro");
-                        String aux = entrada.nextLine();
+                        String aux = entrada.nextLine().trim().replace(".", "");
                         if (gestor.buscarLibro(aux) != null) {
                             NodoLibro libroBuscado = gestor.buscarLibro(aux);
-                            System.out.println(libroBuscado.getLibro().toString());
+                            System.out.println(libroBuscado.libro.toString());
                         } else {
                             System.out.println("Error no se encontro el libro");
                         }
@@ -99,5 +99,12 @@ public class Ejercicio1 {
 
             }
         } while (opcion != 0);
+    }
+    
+      static int leerInt() {
+        try { 
+            return Integer.parseInt(entrada.nextLine().trim());
+        } catch (NumberFormatException e) 
+        { return -1; }
     }
 }
